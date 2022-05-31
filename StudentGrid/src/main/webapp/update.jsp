@@ -25,12 +25,19 @@ session.setAttribute("stdds", stds);
 
 EntityManagerFactory emf = Persistence.createEntityManagerFactory("unit01");
 EntityManager em = emf.createEntityManager();
+if(Integer.parseInt(request.getParameter("sid"))!=0||request.getParameter("sid")!=null)
+{
 int sid=Integer.parseInt(request.getParameter("sid"));
 Student stdu = em.find(Student.class, sid);
 session.setAttribute("std", stdu);
+}
+
 %>
 <body>
-	<form name="insertwalaform" id="form-1" action="update">
+	<form name="insertwalaform" id="form-1" action="insert?sid=${std.getId()}" method="get">
+	
+	`<input id="input-1" type="hidden" name="sid" 
+		type="text" value="${std.getId()}" /> <br> 
 		<h2> Insert Student Details:</h2>
 		<br>
 		<br> <label for="input-1">Id:</label> <br> 

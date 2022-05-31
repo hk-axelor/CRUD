@@ -60,9 +60,13 @@ session.setAttribute("stdds", stds);
 		</c:forEach>
 		</tbody>
 	</table>
-	<form name="insertwalajsp" id="form-1" action="insert.jsp">
-<input type="submit" value="Add Student" id="button-1"/>
-	</form>
+	
+	<%-- <form action="update.jsp?sid=${std.getId()}">
+   <input type="submit" value="Add a Student" />
+</form> --%>
+<a href="update.jsp?sid=0">Add a Student</a>
+
+
 
 </body>
 </html>
